@@ -1,0 +1,13 @@
+flutter_native_splash:
+  color: "#FFFFFF"
+  color_dark: "#272727"
+  image: "assets\images\darkimage.png"
+  image_dark: "assets\images\darkimage.png"
+
+  web:
+    color: "#FFFFFF"
+    color_dark: "#272727"
+    image: "e_commerce_app\assets\images\darkimage.png"//"assets/images/light.png"
+    image_dark: "e_commerce_app\assets\images\darkimage.png"
+
+web: true

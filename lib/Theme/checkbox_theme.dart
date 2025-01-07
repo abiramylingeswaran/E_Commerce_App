@@ -7,17 +7,17 @@ class CheckboxTheme {
      shape: RoundedRectangleBorder(
        borderRadius: BorderRadius.circular(8),
      ),
-     checkColor:MaterialStateProperty.resolveWith(
+     checkColor:WidgetStateProperty.resolveWith(
         (states) {
-          if (states.contains(MaterialState.selected)) {
+          if (states.contains(WidgetState.selected)) {
             return Colors.grey;
           }
           return Colors.white;
         },
      ),
-        fillColor: MaterialStateProperty.resolveWith(
+        fillColor: WidgetStateProperty.resolveWith(
           (states) {
-            if (states.contains(MaterialState.selected)) {
+            if (states.contains(WidgetState.selected)) {
               return Colors.blue;
             }
             return Colors.white;
@@ -31,17 +31,17 @@ class CheckboxTheme {
      shape: RoundedRectangleBorder(
        borderRadius: BorderRadius.circular(8),
      ),
-     checkColor: MaterialStateProperty.resolveWith(
+     checkColor: WidgetStateProperty.resolveWith(
         (states) {
-          if (states.contains(MaterialState.selected)) {
+          if (states.contains(WidgetState.selected)) {
             return Colors.grey;
           }
           return Colors.white;
         },
       ),
-      fillColor: MaterialStateProperty.resolveWith(
+      fillColor: WidgetStateProperty.resolveWith(
         (states) {
-          if (states.contains(MaterialState.selected)) {
+          if (states.contains(WidgetState.selected)) {
             return Colors.black;
           }
           return Colors.white;
