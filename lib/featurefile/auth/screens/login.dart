@@ -25,14 +25,14 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _loginWithFacebook() {
-    // Implement Facebook login here
+  
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Logged in with Facebook')),
     );
   }
 
   void _loginWithGoogle() {
-    // Implement Google login here
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Logged in with Google')),
     );
@@ -150,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       'Sign In',
                       style: TextStyle(
                         color: Colors
-                            .blue, // Sign In button text color set to blue
+                            .blue, 
                       ),
                     ),
                   ),
