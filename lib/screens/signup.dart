@@ -1,8 +1,6 @@
+import 'package:e_commerce_app/controller/sign_up_controller.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(SignUpScreen());
-}
+import 'package:e_commerce_app/binding/sign_binding.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -10,21 +8,13 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  late SignUpController _signUpController;
 
-  void _signUp() {
-    if (_formKey.currentState!.validate()) {
-      final username = _usernameController.text;
-      final email = _emailController.text;
-      final password = _passwordController.text;
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Sign-Up Successful')),
-      );
-    }
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Bind the controller here
+    _signUpController = SignUpBinding.bind(context);
   }
 
   @override
@@ -34,7 +24,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         color: const Color.fromARGB(144, 247, 248, 249),
         padding: const EdgeInsets.all(16.0),
         child: Form(
-          key: _formKey,
+          key: _signUpController.formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -55,7 +45,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               SizedBox(height: 16),
               TextFormField(
-                controller: _usernameController,
+                controller: _signUpController.usernameController,
                 decoration: InputDecoration(
                   labelText: 'Username',
                   fillColor: Colors.white,
@@ -70,7 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               SizedBox(height: 16),
               TextFormField(
-                controller: _emailController,
+                controller: _signUpController.emailController,
                 decoration: InputDecoration(
                   labelText: 'Email',
                   fillColor: Colors.white,
@@ -88,7 +78,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               SizedBox(height: 16),
               TextFormField(
-                controller: _passwordController,
+                controller: _signUpController.passwordController,
                 decoration: InputDecoration(
                   labelText: 'Password',
                   fillColor: Colors.white,
@@ -106,16 +96,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               SizedBox(height: 24),
               Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.stretch, // Full-width buttons
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   ElevatedButton(
-                    onPressed: _signUp,
+                    onPressed: _signUpController.signUp,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white, // Background color
+                      backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(8.0), // Rounded corners
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                       padding: EdgeInsets.symmetric(
                           horizontal: 24.0, vertical: 12.0),
@@ -123,11 +111,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Text(
                       'Sign Up',
                       style: TextStyle(
-                        color: Colors.blue, // Text color
+                        color: Colors.blue,
                       ),
                     ),
                   ),
-                  SizedBox(height: 16), // Space between the buttons
+                  SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -135,7 +123,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue, // Background color
+                      backgroundColor: Colors.blue,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
@@ -145,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Text(
                       'Back to Login',
                       style: TextStyle(
-                        color: Colors.white, // Text color
+                        color: Colors.white,
                       ),
                     ),
                   ),

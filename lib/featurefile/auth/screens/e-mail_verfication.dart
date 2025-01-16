@@ -114,9 +114,3 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: EmailVerificationScreen(),
-    debugShowCheckedModeBanner: false,
-  ));
-}

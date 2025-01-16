@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ReusableBottomBar extends StatelessWidget {
+class BottomBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
 
-  ReusableBottomBar({
+  BottomBar({
     required this.currentIndex,
     required this.onTap,
   });
@@ -87,15 +87,11 @@ class _BottomBarAppState extends State<BottomBarApp> {
             style: const TextStyle(fontSize: 24),
           ),
         ),
-        bottomNavigationBar: ReusableBottomBar(
+        bottomNavigationBar: BottomBar(
           currentIndex: _currentIndex,
           onTap: _onTabTapped,
         ),
       ),
     );
   }
-}
-
-void main() {
-  runApp(BottomBarApp());
 }

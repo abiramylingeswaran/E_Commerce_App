@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:e_commerce_app/screens/Login.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   @override
@@ -19,6 +21,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Account Created Successfully')),
+      );
+
+      // Navigate to Login Screen after account creation
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
       );
     }
   }
@@ -160,8 +168,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 24.0, vertical: 12.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
                 ),
                 child: Text(
                   'Create Account',
