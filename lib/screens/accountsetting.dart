@@ -18,7 +18,7 @@ class AccountSettingsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Email Address Section
+          
             Text(
               "Change Email Address",
               style: TextStyle(

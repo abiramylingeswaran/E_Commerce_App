@@ -37,20 +37,17 @@ class SettingScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             SwitchListTile(
-              title: Text(
-                'Enable Notifications',
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Theme.of(context).brightness == Brightness.dark
-                      ? Colors.white
-                      : Colors.black,
+                title: Text(
+                  'Enable Notifications',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
+                  ),
                 ),
-              ),
-              value: true, // You can make this dynamic later
-              onChanged: (bool value) {
-                // Handle toggle change here
-              },
-            ),
+                value: true,
+                onChanged: (bool value) {},),
             SizedBox(height: 16),
 
             // Account Settings Button
