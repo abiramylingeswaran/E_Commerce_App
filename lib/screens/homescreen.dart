@@ -1,7 +1,5 @@
-import 'package:e_commerce_app/featurefile/auth/screens/bottom_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:e_commerce_app/featurefile/auth/screens/clip.dart';
-import 'package:e_commerce_app/featurefile/share_widgets/bottom_bar.dart';
+import 'package:flutter/material.dart';
 import 'package:e_commerce_app/featurefile/auth/screens/gridview.dart';
 
 class FeedPage extends StatelessWidget {
@@ -16,16 +14,15 @@ class FeedPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Clip(),
-
-          const SizedBox(height: 5),
-
-          // GridView Section
-          Expanded(child: GridViewApple()),
-
-          // const BottomBar(
-          //   currentIndex: 1,
-          // ),
+          const SizedBox(
+            height: 200,
+            child: Clip(),
+          ),
+          const SizedBox(height: 5), 
+        
+          Expanded(
+            child: GridViewApple(),
+          ),
         ],
       ),
     );

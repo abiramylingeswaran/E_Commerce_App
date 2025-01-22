@@ -10,27 +10,29 @@ class Clip extends StatefulWidget {
 class _ClipState extends State<Clip> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-  
-      // ),
-      body: Stack(
-        children: [
-          ClipPath(
-            clipper: MyClipper(),
-            child: Container(
-              color: Colors.blue,
-              height: 400,
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            ClipPath(
+              clipper: MyClipper(),
+              child: Container(
+                color: Colors.blue,
+                height: screenHeight * 0.4,
+              ),
             ),
-          ),
-          const Positioned(
-            top: 150,
-            left: 100,
-            child: Text(
-              'Apple',
-              style: TextStyle(color: Colors.white, fontSize: 24),
+            const Positioned(
+              top: 50,
+              left: 50,
+              child: Text(
+                'Apple',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -42,7 +44,7 @@ class MyClipper extends CustomClipper<Path> {
     Path path = Path();
 
     path.lineTo(0, 0);
-    path.quadraticBezierTo(size.width * 0.2, 0, size.width, 0);
+    path.quadraticBezierTo(size.width * 0.3, 0, size.width, 0);
     path.quadraticBezierTo(
         size.width, size.height * 0.2, size.width, size.height);
     path.quadraticBezierTo(0, size.height * 0.3, 0, size.height);
