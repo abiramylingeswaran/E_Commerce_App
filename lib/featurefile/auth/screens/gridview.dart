@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 
 class GridViewApple extends StatelessWidget {
+  final List<Map<String, String>> items = [
+    {'image': 'https://via.placeholder.com/150', 'label': 'Apple'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Orange'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Banana'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Grapes'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Pineapple'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Mango'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Strawberry'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Blueberry'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Watermelon'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Peach'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Kiwi'},
+    {'image': 'https://via.placeholder.com/150', 'label': 'Papaya'},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Grid View Example'),
-        backgroundColor: Colors.blue,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
@@ -15,25 +26,40 @@ class GridViewApple extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 10.0,
             mainAxisSpacing: 10.0,
-            childAspectRatio: 1.0,
+            childAspectRatio: 0.8,
           ),
-          itemCount: 12,
+          itemCount: items.length,
           itemBuilder: (context, index) {
             return Card(
-              color: Colors.blueAccent,
+              color: const Color.fromARGB(255, 112, 114, 118),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
               elevation: 4,
-              child: Center(
-                child: Text(
-                  'Item ${index + 1}',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Picture
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.network(
+                      items[index]['image']!,
+                      height: 100,
+                      width: 100,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
+                  const SizedBox(height: 10),
+                  // Label
+                  Text(
+                    items[index]['label']!,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             );
           },
@@ -42,10 +68,3 @@ class GridViewApple extends StatelessWidget {
     );
   }
 }
-
-// void main() {
-//   runApp(MaterialApp(
-//     debugShowCheckedModeBanner: false,
-//     home: GridView(),
-//   ));
-// }
